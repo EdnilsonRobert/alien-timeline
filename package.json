@@ -1,0 +1,19 @@
+{
+  "name": "alien-timeline",
+  "version": "1.0.0",
+  "description": "Timeline da franquia Alien",
+  "main": "./scripts/timeline.js",
+  "scripts": {
+    "dev": "sass --watch --style=compressed sources/:resources/css",
+    "scss": "sass --style=compressed sources/:resources/css"
+  },
+  "keywords": [
+    "alien",
+    "timeline"
+  ],
+  "author": "EdnilsonRobert",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.90.0"
+  }
+}

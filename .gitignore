@@ -6,5 +6,7 @@ package-lock.json
 .npm
 
 # My project
+/old-project
 _TEMP/
 notes.md
+/sources
