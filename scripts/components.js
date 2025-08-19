@@ -34,33 +34,38 @@ let place = {
 
 let insert = {
   header: (obj) => {
-    let cardHeader = create.container('header', 'card-header');
-    cardHeader.append(place.text('h2', obj.date, 'card-title'));
+    let cardHeader = create.container('header', 'card-container');
+    cardHeader.append(
+      place.text('h2', obj.date, 'card-highlight text-display text-bright')
+    );
     return cardHeader;
   },
   content: (obj) => {
-    let cardBody = create.container('section', 'card-body');
-    let cardContentHeading = create.container('div', 'card-body-heading');
-    let cardBodyContent = create.container('p', 'card-body-content');
+    let cardBody = create.container('section', 'card-container');
+    let cardContentHeading = create.container('div', 'card-highlight');
+    let cardBodyContent = create.container('div', 'card-body');
     cardBody.append(cardContentHeading, cardBodyContent);
 
-    let cardBadge = create.container('p', 'card-badge');
+    let cardBadge = create.container('figure');
     place.svg(obj.source.icon, cardBadge);
-    cardBadge.append(place.text('span', obj.source.label));
     cardContentHeading.append(
-      place.text('h3', `${message.subject}: ${obj.subject}`, 'card-subtitle'),
+      place.text(
+        'h3',
+        `${message.subject}: ${obj.subject}`,
+        'overline text-bright'
+      ),
       cardBadge
     );
 
     if (Object.hasOwn(obj, 'icon')) place.svg(obj.icon, cardBodyContent);
     cardBodyContent.append(
-      place.text('span', `${message.record}: ${obj.happenings}`)
+      place.text('p', `${message.record}: ${obj.happenings}`, 'text-faded')
     );
 
     return cardBody;
   },
   media: (obj) => {
-    let cardMedia = create.container('figure', 'card-media');
+    let cardMedia = create.container('figure', 'card-container');
 
     if (Object.hasOwn(obj.media, 'figure')) {
       let figure = create.container('img', 'card-figure');
@@ -96,21 +101,32 @@ let insert = {
 
     if (obj.media.caption.show)
       cardMedia.append(
-        place.text('figcaption', obj.media.caption.label, 'card-media-caption')
+        place.text(
+          'figcaption',
+          obj.media.caption.label,
+          'caption text-faded text-center'
+        )
       );
 
     return cardMedia;
   },
   alert: (obj, target) => {
-    let cardFooter = create.container('footer', 'card-footer');
+    let cardFooter = create.container('footer', 'card-container card-footer');
+    let footerContent = create.container('div', 'card-highlight');
+    cardFooter.append(footerContent);
 
+    footerContent.append(create.container('figure', 'footer-detail'));
     if (Object.hasOwn(obj, 'danger')) {
       target.classList.add('card-danger');
-      cardFooter.append(place.text('p', `${message.danger}: ${obj.danger}`));
+      footerContent.append(
+        place.text('p', message.danger, 'footer-content text-faded')
+      );
     }
     if (Object.hasOwn(obj, 'warning')) {
       target.classList.add('card-warning');
-      cardFooter.append(place.text('p', `${message.warning}: ${obj.warning}`));
+      footerContent.append(
+        place.text('p', message.warning, 'footer-content text-faded')
+      );
     }
 
     return cardFooter;
@@ -120,6 +136,9 @@ let insert = {
 // CARDS -----------------------------------------------------------------------
 export let card = (obj) => {
   let card = create.container('article', 'card');
+  if (!Object.hasOwn(obj, 'danger') && !Object.hasOwn(obj, 'warning')) {
+    card.classList.add('card-default');
+  }
 
   card.append(insert.header(obj));
 

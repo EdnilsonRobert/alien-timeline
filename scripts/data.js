@@ -41,6 +41,20 @@ export const data = [
     subject: subject.alien1,
     source: source.movie,
     happenings: 'Resumo do acontecimento.',
+    danger: true,
+  },
+  {
+    date: '2122',
+    subject: subject.alien1,
+    source: source.movie,
+    happenings: 'Resumo do acontecimento.',
+    warning: true,
+  },
+  {
+    date: '2122',
+    subject: subject.alien1,
+    source: source.movie,
+    happenings: 'Resumo do acontecimento.',
     icon: icon.star,
   },
   {
@@ -69,33 +83,19 @@ export const data = [
       figure: 'logo-weyland-corp.svg',
     },
   },
-  {
-    date: '2122',
-    subject: subject.alien1,
-    source: source.movie,
-    happenings: 'Resumo do acontecimento.',
-    media: {
-      caption: {
-        show: false,
-        label: 'Weyland Corp.',
-      },
-      video: 'https://www.youtube.com/embed/6EtegGrPcp4',
-    },
-  },
-  {
-    date: '2122',
-    subject: subject.alien1,
-    source: source.movie,
-    happenings: 'Resumo do acontecimento.',
-    danger: 'Mensagem de perigo',
-  },
-  {
-    date: '2122',
-    subject: subject.alien1,
-    source: source.movie,
-    happenings: 'Resumo do acontecimento.',
-    warning: 'Mensagem de aviso',
-  },
+  // {
+  //   date: '2122',
+  //   subject: subject.alien1,
+  //   source: source.movie,
+  //   happenings: 'Resumo do acontecimento.',
+  //   media: {
+  //     caption: {
+  //       show: false,
+  //       label: 'Weyland Corp.',
+  //     },
+  //     video: 'https://www.youtube.com/embed/6EtegGrPcp4',
+  //   },
+  // },
 
   // {
   //   date: '2122',

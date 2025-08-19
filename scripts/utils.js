@@ -5,7 +5,7 @@
 
 export const messages = {
   attention: 'Attention',
-  danger: 'Danger',
+  danger: 'Caution',
   record: 'Record',
   subject: 'Subject',
   waiting: 'Aguardando novos episódios...',
