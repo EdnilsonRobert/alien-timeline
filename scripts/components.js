@@ -18,6 +18,13 @@ let create = {
 };
 
 let place = {
+  image: (image, alt, styles = null) => {
+    let img = create.container('img');
+    img.src = `${path_images}/${image}`;
+    img.alt = alt;
+    if (styles) styles.split(' ').forEach((style) => img.classList.add(style));
+    return img;
+  },
   svg: (file, target) => {
     fetch(`${path_images}/icon-${file}.svg`)
       .then((response) => response.text())
@@ -43,24 +50,35 @@ let insert = {
   content: (obj) => {
     let cardBody = create.container('section', 'card-container');
     let cardContentHeading = create.container('div', 'card-highlight');
-    let cardBodyContent = create.container('div', 'card-body');
-    cardBody.append(cardContentHeading, cardBodyContent);
+    let cardContentBody = create.container('div', 'card-body');
+    cardBody.append(cardContentHeading, cardContentBody);
 
     let cardBadge = create.container('figure');
     place.svg(obj.source.icon, cardBadge);
-    cardContentHeading.append(
+    let cardSubject = create.container('div');
+    cardSubject.append(
       place.text(
         'h3',
         `${message.subject}: ${obj.subject}`,
         'overline text-bright'
       ),
-      cardBadge
+      place.text('p', `${message.related}: ${obj.related}`, 'text-faded')
     );
+    cardContentHeading.append(cardSubject, cardBadge);
 
-    if (Object.hasOwn(obj, 'icon')) place.svg(obj.icon, cardBodyContent);
-    cardBodyContent.append(
-      place.text('p', `${message.record}: ${obj.happenings}`, 'text-faded')
+    let imageLabel = obj.media.caption ?? obj.subject;
+    if (Object.hasOwn(obj, 'icon')) place.svg(obj.icon, cardContentBody);
+    if (Object.hasOwn(obj.media, 'thumb'))
+      cardContentBody.append(
+        place.image(obj.media.thumb, imageLabel, 'card-thumb')
+      );
+
+    let text = create.container('div');
+    text.append(
+      place.text('p', `${message.record}:`, 'text-faded'),
+      place.text('p', obj.happenings, 'text-faded')
     );
+    cardContentBody.append(text);
 
     return cardBody;
   },
@@ -68,42 +86,17 @@ let insert = {
     let cardMedia = create.container('figure', 'card-container');
 
     if (Object.hasOwn(obj.media, 'figure')) {
-      let figure = create.container('img', 'card-figure');
-      figure.src = `${path_images}/${obj.media.figure}`;
-      figure.alt = obj.media.caption.label;
-      cardMedia.append(figure);
+      let imageLabel = obj.media.caption ?? obj.subject;
+      cardMedia.append(
+        place.image(obj.media.figure, imageLabel, 'card-figure')
+      );
     }
 
-    if (Object.hasOwn(obj.media, 'video')) {
-      let video = create.container('iframe', 'card-video');
-      video.src =
-        'https://www.youtube.com/embed/6EtegGrPcp4?si=MGqmt-iFYZLs_sqO';
-      // video.setAttribute(
-      //   'allow',
-      //   'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-      // );
-      video.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-      cardMedia.append(video);
-
-      // https://www.youtube.com/watch?v=6EtegGrPcp4
-      // <iframe
-      //   width="560"
-      //   height="315"
-      //   src="https://www.youtube.com/embed/6EtegGrPcp4?si=MGqmt-iFYZLs_sqO"
-      //   title="YouTube video player"
-      //   frameborder="0"
-      //   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      //   referrerpolicy="strict-origin-when-cross-origin"
-      //   allowfullscreen></iframe>
-      // cardMedia.insertAdjacentHTML('afterbegin', obj.media.video);
-      // <iframe class="card-video-frame"></iframe>
-    }
-
-    if (obj.media.caption.show)
+    if (Object.hasOwn(obj.media, 'caption'))
       cardMedia.append(
         place.text(
           'figcaption',
-          obj.media.caption.label,
+          obj.media.caption,
           'caption text-faded text-center'
         )
       );
@@ -142,7 +135,7 @@ export let card = (obj) => {
 
   card.append(insert.header(obj));
 
-  if (Object.hasOwn(obj, 'media')) card.append(insert.media(obj));
+  if (Object.hasOwn(obj.media, 'figure')) card.append(insert.media(obj));
 
   card.append(insert.content(obj));
 
@@ -165,12 +158,11 @@ export let card = (obj) => {
 };
 
 export let ending = () => {
-  let card = create.container('article', 'card card-ending');
-  let cardHeader = create.container('header', 'card-header');
-  let cardBody = create.container('section', 'card-body');
-  card.append(cardHeader, cardBody);
-  cardHeader.append(place.text('h2', 'Ending card title'));
-  cardBody.append(place.text('p', message.waiting));
+  let card = create.container('article', 'card-ending');
+  card.append(
+    create.container('div'),
+    place.text('p', message.waiting, 'text-bright')
+  );
   return card;
 };
 

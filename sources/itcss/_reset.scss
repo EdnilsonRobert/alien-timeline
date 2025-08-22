@@ -1,0 +1,20 @@
+/** ============================================================================
+    Group: Generics
+    File: Reset
+============================================================================= */
+
+// RESET -----------------------------------------------------------------------
+body, html, h1, h2, h3, h4, h5, h6, p,
+address, article, aside, footer, header, main, nav, section,
+blockquote, div, hr,
+a, br, small, span, strong,
+button,
+figcaption, figure, img, svg,
+::before, ::after,
+ion-icon {
+  box-sizing: border-box;
+  margin: unset;
+  padding: unset;
+}
+
+/* END OF FILE ============================================================== */

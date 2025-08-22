@@ -1,0 +1,28 @@
+/** ============================================================================
+    Group: Components
+    File: Wireframe
+============================================================================= */
+
+.body {
+  background: url('../images/alien-background.webp') no-repeat fixed 0%/cover;
+  // color: var(--green-80);
+    color: darkgray;
+  // TODO: alterar cor do body
+}
+
+.main-container {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.alien-timeline {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  // gap: var(--space-xl);
+  gap: var(--space-md);
+  // TODO: alterar gap entre cartões
+}
+
+/* END OF FILE ============================================================== */

@@ -1,0 +1,37 @@
+/** ============================================================================
+    Group: Generics
+    File: Normalize
+============================================================================= */
+
+// NORMALIZE -------------------------------------------------------------------
+html {
+  font-size: 62.5%;
+  text-size-adjust: 100%;
+  font-optical-sizing: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-weight: var(--font-weight);
+  font-style: normal;
+  font-size: var(--font-size-rg);
+  font-family: var(--font-family-mono);
+  line-height: var(--line-height-rg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight);
+}
+
+a {
+  text-decoration: unset;
+  color: inherit;
+}
+
+img, svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* END OF FILE ============================================================== */

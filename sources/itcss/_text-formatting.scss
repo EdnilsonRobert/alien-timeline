@@ -1,0 +1,27 @@
+/** ============================================================================
+    Group: Base
+    File: Text formatting
+============================================================================= */
+
+.text-display {
+  font-style: normal;
+  font-family: var(--font-family-display);
+}
+
+.overline { line-height: 1.25; }
+
+.caption {
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-sm);
+}
+
+// a.anchor {}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.to-lowercase { text-transform: lowercase; }
+.to-uppercase { text-transform: uppercase; }
+
+/* END OF FILE ============================================================== */

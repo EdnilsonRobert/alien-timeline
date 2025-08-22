@@ -1,0 +1,78 @@
+/** ============================================================================
+    Group: Settings
+    File: Variables
+============================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tomorrow:wght@500&display=swap');
+
+// VARIABLES -------------------------------------------------------------------
+:root {
+  // SPACING -------------------------------------------------------------------
+  --space-xs: .3rem;
+  --space-sm: .6rem;
+  --space: 1.2rem;
+  --space-md: 2.4rem;
+  // --space-lg: 6rem;
+  --space-xl: 9.6rem;
+
+  // TYPOGRAPHY ----------------------------------------------------------------
+  // FONT WEIGHT -----------------------
+  --font-weight: 500;
+
+  // FONT SIZE -------------------------
+  --font-size-sm: 1.4rem;
+  --font-size-rg: 1.6rem;
+
+  // FONT FAMILY -----------------------
+  --font-family-mono: 'Kode Mono', monospace;
+  --font-family-display: 'Tomorrow', sans-serif;
+
+  // LINE HEIGHT -----------------------
+  --line-height-sm: 1.2;
+  --line-height-rg: 1.5;
+  --line-height-lg: 2;
+
+  // COLOR PALETTE -------------------------------------------------------------
+  --reference-color1: hsl(186, 49%, 45%);
+  --reference-color2: hsl(184, 57%, 42%);
+
+  --logo-gray-color-light: #dfdfdf;
+  --logo-gray-color-dark: #bcbcbc;
+
+  --green: hsla(175, 99%, 58%, 100%);
+  --yellow: hsla(37, 95%, 77%, 100%);
+  --red: hsl(1, 98%, 74%, 100%);
+
+  --green-90: hsla(175, 99%, 58%, 90%);
+  --green-80: hsla(175, 99%, 58%, 80%);
+  --green-70: hsla(175, 99%, 58%, 70%);
+  --green-60: hsla(175, 99%, 58%, 60%);
+  --green-50: hsla(175, 99%, 58%, 50%);
+  --green-40: hsla(175, 99%, 58%, 40%);
+  --green-30: hsla(175, 99%, 58%, 30%);
+  --green-20: hsla(175, 99%, 58%, 20%);
+  --green-10: hsla(175, 99%, 58%, 10%);
+
+  --yellow-90: hsla(37, 95%, 77%, 90%);
+  --yellow-80: hsla(37, 95%, 77%, 80%);
+  --yellow-70: hsla(37, 95%, 77%, 70%);
+  --yellow-60: hsla(37, 95%, 77%, 60%);
+  --yellow-50: hsla(37, 95%, 77%, 50%);
+  --yellow-40: hsla(37, 95%, 77%, 40%);
+  --yellow-30: hsla(37, 95%, 77%, 30%);
+  --yellow-20: hsla(37, 95%, 77%, 20%);
+  --yellow-10: hsla(37, 95%, 77%, 10%);
+
+  --red-90: hsla(1, 98%, 74%, 90%);
+  --red-80: hsla(1, 98%, 74%, 80%);
+  --red-70: hsla(1, 98%, 74%, 70%);
+  --red-60: hsla(1, 98%, 74%, 60%);
+  --red-50: hsla(1, 98%, 74%, 50%);
+  --red-40: hsla(1, 98%, 74%, 40%);
+  --red-30: hsla(1, 98%, 74%, 30%);
+  --red-20: hsla(1, 98%, 74%, 20%);
+  --red-10: hsla(1, 98%, 74%, 10%);
+}
+
+/* END OF FILE ============================================================== */

@@ -7,6 +7,7 @@ export const messages = {
   attention: 'Attention',
   danger: 'Caution',
   record: 'Record',
+  related: 'Related',
   subject: 'Subject',
   waiting: 'Aguardando novos episódios...',
   warning: 'Warning',
@@ -17,7 +18,7 @@ export const icons = {
   star: 'star',
 };
 
-export const subjects = {
+export const related = {
   alien1: 'Alien: o oitavo passageiro',
   alien2: 'Aliens: o resgate',
   alien3: 'Aliens 3',
